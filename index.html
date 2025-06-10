@@ -5,63 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DJ Mixer</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/images/cornnflaek.jpg" type="image/jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
   <h1>DJ Mixer</h1>
 
-  <div class="mixer">
-    <div class="deck" id="deckA">
-      <h2>Deck A</h2>
-      <input type="file" accept="audio/*" id="fileA">
-      <div class="controls">
-        <button onclick="playTrack('A')">Play</button>
-        <button onclick="pauseTrack('A')">Pause</button>
-        <label>Tempo:
-          <input type="range" min="0.5" max="2" step="0.01" value="1" class="slider" id="bpmA">
-        </label>
-      </div>
-      <div class="equalizer">
-        <label>Low
-          <input type="range" min="-40" max="40" value="0" class="slider">
-        </label>
-        <label>Mid
-          <input type="range" min="-40" max="40" value="0" class="slider">
-        </label>
-        <label>High
-          <input type="range" min="-40" max="40" value="0" class="slider">
-        </label>
-      </div>
+ <div class="controller">
+  <!--DECK 1-->
+  <div class="deck" id="deck1">
+    <h2>Deck 1</h2>
+    <div class="jogwheel spin-idle">
+      <div class="jogwheel-center"></div>
+      <div class="jogwheel-indicator"></div>
     </div>
-
-    <div class="deck" id="deckB">
-      <h2>Deck B</h2>
-      <input type="file" accept="audio/*" id="fileB">
-      <div class="controls">
-        <button onclick="playTrack('B')">Play</button>
-        <button onclick="pauseTrack('B')">Pause</button>
-        <label>Tempo:
-          <input type="range" min="0.5" max="2" step="0.01" value="1" class="slider" id="bpmB">
-        </label>
-      </div>
-      <div class="equalizer">
-        <label>Low
-          <input type="range" min="-40" max="40" value="0" class="slider">
-        </label>
-        <label>Mid
-          <input type="range" min="-40" max="40" value="0" class="slider">
-        </label>
-        <label>High
-          <input type="range" min="-40" max="40" value="0" class="slider">
-        </label>
-      </div>
+    <input type="file" accept="audio/*" id="fileA">
+    <div class="controls">
+      <button class="playpause-btn" onclick="playTrack('deck1')">▶/⏸</button>
+      <button class="cue-btn" onclick="pauseTrack('deck1')">CUE</button>
+      <div class="tempo-container">
+          <input type="range" min="0.5" max="2" step="0.01" value="1.25" class="tempo-slider" id="tempo1">
+          <div class="tempo-label-vertical">
+            <span>T</span>
+            <span>E</span>
+            <span>M</span>
+            <span>P</span>
+            <span>O</span>
+          </div>
+        </div>
     </div>
   </div>
 
+  <!-- MIXER CONTROLS -->
+<div class="mixer">
+  <h2>Mixer</h2>
+
+  <div class="equalizer-row">
+    <div class="equalizer-group">
+      <h3>EQ - Deck 1</h3>
+      <label>HIGH
+        <input type="range" min="-40" max="40" value="0" class="slider_eq-deck1">
+      </label>
+      <label>MID
+        <input type="range" min="-40" max="40" value="0" class="slider_eq-deck1">
+      </label>
+      <label>LOW
+        <input type="range" min="-40" max="40" value="0" class="slider_eq-deck1">
+      </label>
+    </div>
+
+    <div class="equalizer-group">
+      <h3>EQ - Deck 2</h3>
+      <label>HIGH
+        <input type="range" min="-40" max="40" value="0" class="slider_eq-deck2">
+      </label>
+      <label>MID
+        <input type="range" min="-40" max="40" value="0" class="slider_eq-deck2">
+      </label>
+      <label>LOW
+        <input type="range" min="-40" max="40" value="0" class="slider_eq-deck2">
+      </label>
+    </div>
+  </div>
+  
   <div class="crossfader-container">
-    <label>Crossfader:
-      <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider" id="crossfader">
+    <label>Crossfader
+     <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider" id="crossfader">
     </label>
   </div>
+  </div>
+
+
+  <!--DECK 2-->
+  <div class="deck" id="deck2">
+    <h2>Deck B</h2>
+    <div class="jogwheel spin-idle">
+      <div class="jogwheel-center"></div>
+      <div class="jogwheel-indicator"></div>
+    </div>
+    <input type="file" accept="audio/*" id="fileB">
+    <div class="controls">
+      <button class="playpause-btn" onclick="playTrack('deck2')">▶/⏸</button>
+      <button class="cue-btn" onclick="pauseTrack('deck2')">CUE</button>
+      <div class="tempo-container">
+         <input type="range" min="0.5" max="2" step="0.01" value="1.25" class="tempo-slider" id="tempo2">
+         <div class="tempo-label-vertical">
+          <span>T</span>
+          <span>E</span>
+          <span>M</span>
+          <span>P</span>
+          <span>O</span>
+         </div>
+      </div>
+    </div>
+  </div>
+
+
 
   <script src="script.js"></script>
 </body>
